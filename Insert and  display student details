@@ -1,0 +1,76 @@
+# Insert-and-display-student-details
+import java.util.Scanner;
+
+class Student {
+    private int id;
+    private String name;
+    private double grade;
+    public void insertDetails(int id, String name, double grade) {
+        this.id = id;
+        this.name = name;
+        this.grade = grade;
+    }
+    public void displayDetails() {
+        System.out.println("Student ID: " + id);
+        System.out.println("Student Name: " + name);
+        System.out.println("Student Grade: " + grade);
+    }
+}
+public class StudentManagement {
+    public static void main(String[] args){
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the number of students: ");
+        int n = scanner.nextInt();
+        Student[] students = new Student[n];
+         for (int i = 0; i < n; i++) {
+           System.out.println("\nEnter details 
+           for Student " + (i + 1) + ":");
+            System.out.print("Enter ID: ");
+            int id = scanner.nextInt();
+            System.out.print("Enter Name: ");
+            scanner.nextLine();
+            String name = scanner.nextLine();
+            System.out.print("Enter Grade: ");
+            double grade = scanner.nextDouble();
+            students[i] = new Student();
+            students[i].insertDetails(id, name, grade);
+        }
+        System.out.println("\nStudent Details:");
+        for (int i = 0; i < n; i++) {
+            System.out.println("\nDetails of Student " + (i + 1) + ":");
+            students[i].displayDetails();
+        }
+        scanner.close();
+    }
+}
+
+---
+
+Output
+
+Enter the number of students: 2
+
+Enter details for Student 1:
+Enter ID: 101
+Enter Name: Alice
+Enter Grade: 89.5
+
+Enter details for Student 2:
+Enter ID: 102
+Enter Name: Bob
+Enter Grade: 92.3
+
+Student Details:
+
+Details of Student 1:
+Student ID: 101
+Student Name: Alice
+Student Grade: 89.5
+
+Details of Student 2:
+Student ID: 102
+Student Name: Bob
+Student Grade: 92.3
+
+
+---
